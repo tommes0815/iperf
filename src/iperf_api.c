@@ -340,6 +340,12 @@ iperf_get_test_no_delay(struct iperf_test *ipt)
     return ipt->no_delay;
 }
 
+int
+iperf_get_test_connect_timeout(struct iperf_test *ipt)
+{
+    return ipt->settings->connect_timeout;
+}
+
 /************** Setter routines for some fields inside iperf_test *************/
 
 void
@@ -607,6 +613,12 @@ void
 iperf_set_test_no_delay(struct iperf_test* ipt, int no_delay)
 {
     ipt->no_delay = no_delay;
+}
+
+void
+iperf_set_test_connect_timeout(struct iperf_test *ipt, int connect_timeout)
+{
+    ipt->settings->connect_timeout = connect_timeout;
 }
 
 /********************** Get/set test protocol structure ***********************/

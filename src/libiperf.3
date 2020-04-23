@@ -34,6 +34,11 @@ Setting test parameters:
     int iperf_has_zerocopy( void );
     void iperf_set_test_zerocopy( struct iperf_test* t, int zerocopy );
     void iperf_set_test_tos( struct iperf_test* t, int tos );
+    void iperf_set_test_udp_counters_64bit( struct iperf_test* ipt, int udp_counters_64bit );
+    void iperf_set_extra_data( struct iperf_test* ipt, char *dat);
+    void iperf_set_test_bidirectional( struct iperf_test* ipt, int bidirectional);
+    void iperf_set_test_no_delay( struct iperf_test* ipt, int no_delay);
+    void iperf_set_test_connect_timeout( struct iperf_test* ipt, int connect_timeout );
 .fi
 Authentication functions:
 .nf
