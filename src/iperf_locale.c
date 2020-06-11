@@ -119,7 +119,7 @@ const char usage_longstr[] = "Usage: iperf3 [-s|-c host] [options]\n"
                            "  -1, --one-off             handle one client connection then exit\n"
 #if defined(HAVE_SSL)
                            "  --rsa-private-key-path    path to the RSA private key used to decrypt\n"
-			   "                            authentication credentials\n"
+                           "                            authentication credentials\n"
                            "  --authorized-users-path   path to the configuration file containing user\n"
                            "                            credentials\n"
 #endif //HAVE_SSL
@@ -135,16 +135,16 @@ const char usage_longstr[] = "Usage: iperf3 [-s|-c host] [options]\n"
                            "  -b, --bitrate #[KMG][/#]  target bitrate in bits/sec (0 for unlimited)\n"
                            "                            (default %d Mbit/sec for UDP, unlimited for TCP)\n"
                            "                            (optional slash and packet count for burst mode)\n"
-			   "  --pacing-timer #[KMG]     set the timing for pacing, in microseconds (default 1000)\n"
+                           "  --pacing-timer #[KMG]     set the timing for pacing, in microseconds (default 1000)\n"
 #if defined(HAVE_SO_MAX_PACING_RATE)
                            "  --fq-rate #[KMG]          enable fair-queuing based socket pacing in\n"
-			   "                            bits/sec (Linux only)\n"
+                           "                            bits/sec (Linux only)\n"
 #endif
                            "  -t, --time      #         time in seconds to transmit for (default %d secs)\n"
                            "  -n, --bytes     #[KMG]    number of bytes to transmit (instead of -t)\n"
                            "  -k, --blockcount #[KMG]   number of blocks (packets) to transmit (instead of -t or -n)\n"
                            "  -l, --length    #[KMG]    length of buffer to read or write\n"
-			   "                            (default %d KB for TCP, dynamic or %d for UDP)\n"
+                           "                            (default %d KB for TCP, dynamic or %d for UDP)\n"
                            "  --cport         <port>    bind to a specific client port (TCP and UDP, default: ephemeral port)\n"
                            "  -P, --parallel  #         number of parallel client streams to run\n"
                            "  -R, --reverse             run in reverse mode (server sends, client receives)\n"
@@ -172,6 +172,7 @@ const char usage_longstr[] = "Usage: iperf3 [-s|-c host] [options]\n"
                            "  -O, --omit N              omit the first n seconds\n"
                            "  -T, --title str           prefix every output line with this string\n"
                            "  --extra-data str          data string to include in client and server JSON\n"
+                           "  --ctrl-hostname           server hostname for the control socket connection\n"
                            "  --get-server-output       get results from server\n"
                            "  --udp-counters-64bit      use 64-bit counters in UDP test packets\n"
                            "  --repeating-payload       use repeating pattern in payload, instead of\n"
@@ -181,21 +182,20 @@ const char usage_longstr[] = "Usage: iperf3 [-s|-c host] [options]\n"
                            "  --rsa-public-key-path     path to the RSA public key used to encrypt\n"
                            "                            authentication credentials\n"
 #endif //HAVESSL
-                           "  --ctrl-hostname           server hostname for the control socket connection\n"
     
 #ifdef NOT_YET_SUPPORTED /* still working on these */
 #endif
 
-			   "\n"
+                           "\n"
                            "[KMG] indicates options that support a K/M/G suffix for kilo-, mega-, or giga-\n"
-			   "\n"
+                           "\n"
 #ifdef PACKAGE_URL
                            "iperf3 homepage at: " PACKAGE_URL "\n"
 #endif /* PACKAGE_URL */
 #ifdef PACKAGE_BUGREPORT
                            "Report bugs to:     " PACKAGE_BUGREPORT "\n"
 #endif /* PACKAGE_BUGREPORT */
-			   ;
+                           ;
 
 #ifdef OBSOLETE /* from old iperf: no longer supported. Add some of these back someday */
   "-d, --dualtest           Do a bidirectional test simultaneously\n"
