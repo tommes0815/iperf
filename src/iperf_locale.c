@@ -181,6 +181,7 @@ const char usage_longstr[] = "Usage: iperf3 [-s|-c host] [options]\n"
                            "  --rsa-public-key-path     path to the RSA public key used to encrypt\n"
                            "                            authentication credentials\n"
 #endif //HAVESSL
+                           "  --ctrl-hostname           server hostname for the control socket connection\n"
     
 #ifdef NOT_YET_SUPPORTED /* still working on these */
 #endif
