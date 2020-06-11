@@ -73,6 +73,7 @@ struct iperf_time;
 #define OPT_REPEATING_PAYLOAD 18
 #define OPT_EXTRA_DATA 19
 #define OPT_BIDIRECTIONAL 20
+#define OPT_CTRL_HOSTNAME 21
 
 /* states */
 #define TEST_START 1
@@ -115,6 +116,7 @@ int	iperf_get_test_num_streams( struct iperf_test* ipt );
 int	iperf_get_test_repeating_payload( struct iperf_test* ipt );
 int	iperf_get_test_server_port( struct iperf_test* ipt );
 char*	iperf_get_test_server_hostname( struct iperf_test* ipt );
+char*	iperf_get_test_ctrl_hostname( struct iperf_test* ipt );
 char*	iperf_get_test_template( struct iperf_test* ipt );
 int	iperf_get_test_protocol_id( struct iperf_test* ipt );
 int	iperf_get_test_json_output( struct iperf_test* ipt );
@@ -151,6 +153,7 @@ void	iperf_set_test_num_streams( struct iperf_test* ipt, int num_streams );
 void	iperf_set_test_repeating_payload( struct iperf_test* ipt, int repeating_payload );
 void	iperf_set_test_role( struct iperf_test* ipt, char role );
 void	iperf_set_test_server_hostname( struct iperf_test* ipt, char* server_hostname );
+void	iperf_set_test_ctrl_hostname( struct iperf_test* ipt, char* server_hostname );
 void    iperf_set_test_template( struct iperf_test *ipt, char *tmp_template );
 void	iperf_set_test_reverse( struct iperf_test* ipt, int reverse );
 void	iperf_set_test_json_output( struct iperf_test* ipt, int json_output );

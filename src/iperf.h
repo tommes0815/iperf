@@ -250,6 +250,7 @@ struct iperf_test
     struct protocol *protocol;
     signed char state;
     char     *server_hostname;                  /* -c option */
+    char     *ctrl_hostname;             /* --ctrl-hostname option */
     char     *tmp_template;
     char     *bind_address;                     /* first -B option */
     TAILQ_HEAD(xbind_addrhead, xbind_entry) xbind_addrs; /* all -X opts */

@@ -256,6 +256,12 @@ iperf_get_test_server_hostname(struct iperf_test *ipt)
 }
 
 char*
+iperf_get_test_ctrl_hostname(struct iperf_test *ipt)
+{
+    return ipt->ctrl_hostname;
+}
+
+char*
 iperf_get_test_template(struct iperf_test *ipt)
 {
     return ipt->tmp_template;
@@ -493,6 +499,13 @@ void
 iperf_set_test_server_hostname(struct iperf_test *ipt, char *server_hostname)
 {
     ipt->server_hostname = strdup(server_hostname);
+}
+
+
+void
+iperf_set_test_ctrl_hostname(struct iperf_test *ipt, char *ctrl_hostname)
+{
+    ipt->ctrl_hostname = strdup(ctrl_hostname);
 }
 
 void
@@ -1240,6 +1253,10 @@ iperf_parse_arguments(struct iperf_test *test, int argc, char **argv)
 	    case 'h':
 		usage_long(stdout);
 		exit(0);
+            case OPT_CTRL_HOSTNAME:
+                iperf_set_test_ctrl_hostname(test, optarg);
+                client_flag = 1;
+	        break;
             default:
                 usage_long(stderr);
                 exit(1);
@@ -2325,6 +2342,8 @@ iperf_defaults(struct iperf_test *testp)
 
     testp->stats_interval = testp->reporter_interval = 1;
     testp->num_streams = 1;
+    
+    testp->ctrl_hostname = (char*) 0;
 
     testp->settings->domain = AF_UNSPEC;
     testp->settings->unit_format = 'a';
@@ -2424,6 +2443,8 @@ iperf_free_test(struct iperf_test *test)
     }
     if (test->server_hostname)
 	free(test->server_hostname);
+    if (test->ctrl_hostname)
+	free(test->ctrl_hostname);
     if (test->tmp_template)
 	free(test->tmp_template);
     if (test->bind_address)
